@@ -77,10 +77,10 @@
           <!-- Confirmar contraseña -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>Confirmar contraseña</mat-label>
-            <mat-icon matSuffix class="eye-icon" (click)="showPassword()">
-              {{ hide_1 ? 'visibility_off' : 'visibility' }}
+            <input [(ngModel)]="user.confirm_password" name="confirm_password" [type]="inputType_2" matInput placeholder="Confirma contraseña">
+            <mat-icon matSuffix class="eye-icon" (click)="showConfirmPassword()">
+              {{ hide_2 ? 'visibility_off' : 'visibility' }}
             </mat-icon>
-            <input [(ngModel)]="user.confirm_password" name="confirm_password" [type]="inputType_1" matInput placeholder="Confirma contraseña">
           </mat-form-field>
           @if (errors.confirm_password) {
             <div class="invalid-feedback">{{ errors.confirm_password }}</div>

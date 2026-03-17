@@ -25,6 +25,8 @@ export class RegistroScreen implements OnInit {
   /* Password */
   public hide_1 = true;
   public inputType_1: 'password' | 'text' = 'password';
+  public hide_2 = true;
+  public inputType_2: 'password' | 'text' = 'password';
 
   /* Edades */
   public edades: Array<{ value: number }> = [];
@@ -165,8 +167,17 @@ export class RegistroScreen implements OnInit {
   }
 
   public showPassword(): void {
+    console.log('showPassword called, current hide_1:', this.hide_1);
     this.hide_1 = !this.hide_1;
     this.inputType_1 = this.hide_1 ? 'password' : 'text';
+    console.log('showPassword after change, hide_1:', this.hide_1, 'inputType_1:', this.inputType_1);
+  }
+
+  public showConfirmPassword(): void {
+    console.log('showConfirmPassword called, current hide_2:', this.hide_2);
+    this.hide_2 = !this.hide_2;
+    this.inputType_2 = this.hide_2 ? 'password' : 'text';
+    console.log('showConfirmPassword after change, hide_2:', this.hide_2, 'inputType_2:', this.inputType_2);
   }
 
   

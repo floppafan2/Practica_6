@@ -220,6 +220,7 @@ export class ValidatorService {
     return d.length === 10;
   }
 
+  // Alfanumérico (letras y números, sin espacios ni símbolos)
   public alphanumeric(input: any): boolean {
     const s = this.toStr(input);
     return /^[a-zA-Z0-9]+$/.test(s);
