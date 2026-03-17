@@ -134,7 +134,7 @@ export class RegistroScreen implements OnInit {
   // Dirección
   if (!this.validator.required(this.user.direccion)) {
     this.errors.direccion = this.errorService.required;
-  } else if (!this.validator.wordsES(this.user.direccion)) {
+  } else if (!this.validator.maxSpaces(this.user.direccion, 2)) {
     this.errors.direccion = this.errorService.msg('pattern', 'Calle 123, México');
   }
 

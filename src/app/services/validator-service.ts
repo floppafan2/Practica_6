@@ -67,6 +67,13 @@ export class ValidatorService {
     return s.length >= min && s.length <= max;
   }
 
+  /** Máximo número de espacios permitidos */
+  public maxSpaces(input: Nullable<unknown>, max: number): boolean {
+    const s = this.toStr(input);
+    const spaces = (s.match(/\s/g) || []).length;
+    return spaces <= max;
+  }
+
   /* =========================================================
      2) Email
      ========================================================= */
