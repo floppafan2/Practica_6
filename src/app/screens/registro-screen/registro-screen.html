@@ -47,7 +47,7 @@
           <!-- ID Usuario -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>ID Usuario</mat-label>
-            <input [(ngModel)]="user.id_usuario" name="id_usuario" matInput>
+            <input [(ngModel)]="user.id_usuario" name="id_usuario" matInput placeholder="Ingresa ID usuario">
           </mat-form-field>
           @if (errors.id_usuario) {
             <div class="invalid-feedback">{{ errors.id_usuario }}</div>
@@ -77,7 +77,10 @@
           <!-- Confirmar contraseña -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>Confirmar contraseña</mat-label>
-            <input [(ngModel)]="user.confirm_password" name="confirm_password" [type]="inputType_1" matInput>
+            <mat-icon matSuffix class="eye-icon" (click)="showPassword()">
+              {{ hide_1 ? 'visibility_off' : 'visibility' }}
+            </mat-icon>
+            <input [(ngModel)]="user.confirm_password" name="confirm_password" [type]="inputType_1" matInput placeholder="Confirma contraseña">
           </mat-form-field>
           @if (errors.confirm_password) {
             <div class="invalid-feedback">{{ errors.confirm_password }}</div>
@@ -132,7 +135,7 @@
           <!-- Dirección -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>Dirección</mat-label>
-            <input [(ngModel)]="user.direccion" name="direccion" matInput>
+            <input [(ngModel)]="user.direccion" name="direccion" matInput placeholder="Ingresa dirección">
           </mat-form-field>
           @if (errors.direccion) {
             <div class="invalid-feedback">{{ errors.direccion }}</div>
@@ -156,7 +159,7 @@
           <!-- CURP -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>CURP</mat-label>
-            <input [(ngModel)]="user.curp" name="curp" matInput>
+            <input [(ngModel)]="user.curp" name="curp" matInput placeholder="Ingresa CURP">
           </mat-form-field>
           @if (errors.curp) {
             <div class="invalid-feedback">{{ errors.curp }}</div>
@@ -165,7 +168,7 @@
           <!-- RFC -->
           <mat-form-field class="inputs-login" appearance="outline">
             <mat-label>RFC</mat-label>
-            <input [(ngModel)]="user.rfc" name="rfc" matInput>
+            <input [(ngModel)]="user.rfc" name="rfc" matInput placeholder="Ingresa RFC">
           </mat-form-field>
           @if (errors.rfc) {
             <div class="invalid-feedback">{{ errors.rfc }}</div>

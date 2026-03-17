@@ -220,7 +220,7 @@ export class ValidatorService {
     return d.length === 10;
   }
 
-  public idUser(input: any): boolean {
+  public alphanumeric(input: any): boolean {
     const s = this.toStr(input);
     return /^[a-zA-Z0-9]+$/.test(s);
   }

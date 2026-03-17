@@ -106,7 +106,7 @@ export class RegistroScreen implements OnInit {
   // ID usuario
   if (!this.validator.required(this.user.id_usuario)) {
     this.errors.id_usuario = this.errorService.required;
-  } else if (!this.validator.idUser(this.user.id_usuario)) {
+  } else if (!this.validator.alphanumeric(this.user.id_usuario)) {
     this.errors.id_usuario = this.errorService.alphanumeric;
   } else if (!this.validator.lenBetween(this.user.id_usuario, 8, 8)) {
     this.errors.id_usuario = this.errorService.msg('exact', 8);
@@ -132,6 +132,8 @@ export class RegistroScreen implements OnInit {
   // Dirección
   if (!this.validator.required(this.user.direccion)) {
     this.errors.direccion = this.errorService.required;
+  } else if (!this.validator.wordsES(this.user.direccion)) {
+    this.errors.direccion = this.errorService.msg('pattern', 'Calle 123, México');
   }
 
   // Grado
@@ -144,8 +146,11 @@ export class RegistroScreen implements OnInit {
     this.errors.estado = this.errorService.required;
   }
 
+  //Ciudad
   if (!this.validator.required(this.user.ciudad)) {
     this.errors.ciudad = this.errorService.required;
+  } else if (!this.validator.wordsES(this.user.ciudad)) {
+    this.errors.ciudad = this.errorService.msg('pattern', 'Puebla');
   }
 
   if (Object.keys(this.errors).length > 0) return;
