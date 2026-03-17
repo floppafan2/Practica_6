@@ -115,6 +115,8 @@ export class RegistroScreen implements OnInit {
   // Confirmar contraseña
   if (this.user.password !== this.user.confirm_password) {
     this.errors.confirm_password = this.errorService.passwordMatch;
+  } else if (!this.validator.required(this.user.confirm_password)) {
+    this.errors.confirm_password = this.errorService.required;
   }
 
   // CURP
@@ -140,6 +142,10 @@ export class RegistroScreen implements OnInit {
   // Estado
   if (!this.validator.required(this.user.estado)) {
     this.errors.estado = this.errorService.required;
+  }
+
+  if (!this.validator.required(this.user.ciudad)) {
+    this.errors.ciudad = this.errorService.required;
   }
 
   if (Object.keys(this.errors).length > 0) return;
